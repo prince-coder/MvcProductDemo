@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MvcProductDemo.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Customer Name
+        </th>
+        <th>
+            E-mail ID
+        </th>
+        <th>
+            Phone
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CustId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustId })
+        </td>
+    </tr>
+}
+
+</table>
